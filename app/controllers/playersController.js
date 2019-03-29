@@ -1,13 +1,24 @@
+import { Player } from "../models/playerModel";
+
 /**
  * Player controller
  */
-import db from '../models/db';
 
-export function get_all_players (req, res) {
-    console.log(`Request Todos`)
-    res.status(200).send({
-      success: 'true',
-      message: 'todos retrieved successfully',
-      todos: db
-    })
+export function find_players (req, res) {
+    console.log(`Request Players`)
+    Player.findPlayers(null, function(err, result) {
+        if (err) {
+            res.status(500).send({
+                success: false,
+                message: 'error retrieving players',
+                error: err
+            })
+        } else {
+            res.status(200).send({
+                success: true,
+                message: 'players retrieved successfully',
+                players: result
+            })
+        }
+    });
 }

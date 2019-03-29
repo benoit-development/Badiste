@@ -1,14 +1,16 @@
-const todos =  [
-  {
-    id: 1,
-    title: "lunch",
-    description: "Go for lunc by 2pm"
-  },
-  {
-    id: 2,
-    title: "repair car",
-    description: "the light is not good"
-  }
-];
+import { createConnection } from 'mysql';
 
-export default todos;
+var con = createConnection({
+  host: "localhost",
+  user: "root",
+  password: "toor",
+  port: 3306,
+  database: 'badiste'
+});
+
+con.connect(function(err) {
+  if (err) throw err;
+  console.log("Connected to Mysql database");
+});
+
+module.exports = con;
