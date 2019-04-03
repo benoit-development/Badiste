@@ -28,7 +28,6 @@ export class Player {
      */
     static findPlayers(filter, result) {
       var query = "SELECT * FROM players";
-      console.log(filter);
       if (filter) {
         query += " WHERE name LIKE CONCAT('%', ?, '%')";
       }

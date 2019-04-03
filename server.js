@@ -1,10 +1,10 @@
 import express from 'express';
-var cors = require('cors');
 
 // Set up the express app
 const app = express();
 const routes = require('./app/routes/appRoutes');
 const PORT = 5000;
+var cors = require('cors');
 
 // get all todos
 app.use(cors());
