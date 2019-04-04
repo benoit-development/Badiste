@@ -7,7 +7,7 @@ import { Player } from "../models/playerModel";
 export function find_players (req, res) {
     var filter = req.query.search;
     console.log(`Request Players : ${filter}`);
-    Player.findPlayers(filter, function(err, result) {
+    Player.find(filter, function(err, result) {
         if (err) {
             res.status(500).send({
                 success: false,
@@ -27,7 +27,7 @@ export function find_players (req, res) {
 export function find_players_by_license (req, res) {
     var license = req.params.license;
     console.log(`Request Player by license : ${license}`);
-    Player.findPlayerByLicense(license, function(err, result) {
+    Player.findByLicense(license, function(err, result) {
         if (err) {
             res.status(500).send({
                 success: false,
@@ -55,7 +55,7 @@ export function save_player (req, res) {
         req.body.active
     );
     console.log(`Request Saving Player : ${player}`);
-    Player.savePlayer(player, function(err, result) {
+    Player.save(player, function(err, result) {
         if (err) {
             res.status(500).send({
                 success: false,
