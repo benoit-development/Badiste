@@ -9,9 +9,9 @@ var cors = require('cors');
 
 // configure app
 app.use(cors());
-app.use('/', routes);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use('/', routes);
 
 // server listen
 app.listen(PORT, () => {

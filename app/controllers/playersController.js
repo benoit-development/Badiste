@@ -45,9 +45,6 @@ export function find_players_by_license (req, res) {
 }
 
 export function save_player (req, res) {
-    console.log(req.body);
-    console.log(req.query);
-    console.log(req.params);
     var player = new Player(
         req.body.license,
         req.body.name,
