@@ -67,4 +67,27 @@ export class Player {
             }
         });
     }
+
+    /**
+     * Search a specific player with its license number
+     * 
+     * @param {Player} player player license number
+     */
+    static save(player, result) {
+        db.query("INSER ...", [license], function (err, dbResult) {
+            if (err) {
+                // error
+                console.log("Error searching players");
+                result(err, null);
+            } else if (dbResult.length == 0) {
+                // license number not found
+                console.log("License number not found");
+                result("License number not found", null);
+            } else {
+                // no error
+                console.log(dbResult.length + " players found");
+                result(null, dbResult[0]);
+            }
+        });
+    }
   }
